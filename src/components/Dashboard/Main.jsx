@@ -25,6 +25,7 @@ const Main = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/data`);
         setData(response.data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
