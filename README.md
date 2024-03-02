@@ -12,14 +12,14 @@
 To get started with the BlackCoffer Visualization Dashboard:
 
 1. Clone this repository: `git clone https://github.com/abhay1verma5/data_visualisation`
-2. 
-3. Install dependencies:
+  
+2. Install dependencies:
   
    - Frontend: `npm install`
-   -  - Backend: `cd server && npm install`
+   -  Backend: `cd server && npm install`
 4. Run the application:
    
-   - Frontend and baceknd : `npm run dev`
+   - Frontend and bacekend : `npm run dev`
 
 Open your browser and access the dashboard at [http://localhost:3000](http://localhost:3000).
 
