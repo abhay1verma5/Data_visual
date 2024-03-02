@@ -23,8 +23,7 @@ To get started with the BlackCoffer Visualization Dashboard:
 
 Open your browser and access the dashboard at [http://localhost:3000](http://localhost:3000).
 
-Feel free to explore the data visualizations and gain valuable insights from your data!
----
+
 
 
 
