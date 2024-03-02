@@ -18,7 +18,9 @@ adddata(data);
 
 // Routes
 app.use('/api', apiRoutes);
-
+app.get('/', (req, res) => {
+  res.send('Welcome to the home page!');
+});
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
