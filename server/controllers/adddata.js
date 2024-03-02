@@ -2,15 +2,20 @@ const Data = require('../models/Data');
 
 exports.adddata = async (data) => {
   try {
-    // Check if each data entry already exists in the database
-    const newData = [];
-    for (const entry of data) {
-      const existingEntry = await Data.findOne(entry);
-      if (!existingEntry) {
-        newData.push(entry);
-      }
-       console.log(entry)
-    }
+    // Filter out entries with undefined or null _id properties
+    const validData = data.filter(entry => entry && entry._id);
+
+    // Extract unique identifiers (_id) from the valid data
+    const uniqueIdentifiers = validData.map(entry => entry._id);
+
+    // Find existing entries in the database that match any of the unique identifiers
+    const existingEntries = await Data.find({ _id: { $in: uniqueIdentifiers } });
+
+    // Convert existingEntries to a Set for faster lookup
+    const existingEntriesSet = new Set(existingEntries.map(entry => entry._id.toString()));
+
+    // Filter out new data entries that already exist in the database
+    const newData = validData.filter(entry => !existingEntriesSet.has(entry._id.toString()));
 
     // If there are new entries to save, insert them into the database
     if (newData.length > 0) {
